@@ -37,6 +37,8 @@ text-shadow: 2px 2px 8px whitesmoke;
 }
 
 .cars-container, .houses-container, .clothes-container {
+display: flex;
+flex-direction: row;
 background: rgba(227, 222, 222, 0.591);
 box-shadow: 0 8px 32px 0 rgba(14, 26, 57, 0.37);
 backdrop-filter: blur( 5.5px );

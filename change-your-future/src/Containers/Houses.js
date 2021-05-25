@@ -5,11 +5,15 @@ import Cards from '../Components/Cards'
 
 export default function Houses(props) {
 
-
+  const buildCard = () => {
+    return props.houses.map(card => {
+      return <Cards key={card.id} title={card.title} image={card.image} description={card.description} moveToCart={props.moveToCart}/>
+    })
+  }
+  
   return (
-    <div className = "houses-container" onClick={() => props.moveToCart(props.houses)}>
-      <h1>Houses</h1>
-      <img src={props.houses} alt="mansion #1"></img>
+    <div className = "houses-container">
+      {buildCard()}
     </div>
   )
 }

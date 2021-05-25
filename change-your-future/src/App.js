@@ -7,17 +7,33 @@ import './App.css'
 
 export default class App extends Component {
 
-  house1 = "https://images.adsttc.com/media/images/5cb9/ad66/284d/d198/f600/01af/newsletter/07_Houses-of-the-future-dome-house.jpg?1555672417"
-  clothes1 = "https://ychef.files.bbci.co.uk/976x549/p075m09t.jpg"
-  car1 = "https://i.insider.com/57694de3dd0895261f8b47aa?width=700"
-
-
   state = {
-    houses: [this.house1],
-    cars: [this.car1],
-    clothes: [this.clothes1],
+    houses: [],
+    cars: [],
+    clothes: [],
     ourFuture: []
   }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/outfits')
+      .then(response => response.json())
+      .then(clothes => {this.setState({
+        clothes
+      })})
+      
+    fetch('http://localhost:3000/cars')
+      .then(response => response.json())
+      .then(cars => {this.setState({
+        cars
+      })})
+      
+    fetch('http://localhost:3000/houses')
+      .then(response => response.json())
+      .then(houses => {this.setState({
+        houses
+      })})
+    }
+
 
   moveToCart = (clickedCard) => {
     const foundCard = this.state.ourFuture.find(
@@ -29,6 +45,10 @@ export default class App extends Component {
     }
   }
 
+
+
+  
+
   render() {
     return (
       <div className="app">
@@ -36,8 +56,9 @@ export default class App extends Component {
         <Houses moveToCart={this.moveToCart} houses={this.state.houses} />
         <Cars moveToCart={this.moveToCart} cars={this.state.cars} />
         <Clothes moveToCart={this.moveToCart} clothes={this.state.clothes} />
-        <OurFuture />
+        <OurFuture ourFuture={this.state.ourFuture}/>
       </div>
     )
   }
 }
+
