@@ -10,9 +10,12 @@ export default function OurFuture(props) {
   }
 
   return (
-    <div className="our-future-container">
+    <div>
       <h1>Our Future</h1>
+
+    <div className="our-future-container">
       {buildCard()}
+    </div>
     </div>
   )
 }

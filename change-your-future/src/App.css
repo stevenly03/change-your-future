@@ -47,16 +47,26 @@ border-radius: 20px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 margin: 10px;
 text-align: center;
+
 }
 
 .our-future-container {
-  border: 5px, solid black;
-  background: blue;
+ display: flex;
+flex-direction: row;
+background: rgba(227, 222, 222, 0.591);
+box-shadow: 0 8px 32px 0 rgba(14, 26, 57, 0.37);
+backdrop-filter: blur( 5.5px );
+-webkit-backdrop-filter: blur( 5.0px );
+border-radius: 20px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+margin: 10px;
+text-align: center;
 }
 
 h1 {
   font-size: 30px;
   font-family:'Montserrat', sans-serif;
+  text-align: center;
 }
 
 img {
